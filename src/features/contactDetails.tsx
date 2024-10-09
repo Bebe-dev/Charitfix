@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Flex, Divider, Spacer } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -27,12 +28,31 @@ export default function ContactDetails() {
     },
   });
 
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  // Function to handle file selection
+  const handleImageChange = (e:any) => {
+    const file = e.target.files[0];
+    if (file) {
+      setSelectedImage(URL.createObjectURL(file));
+    }
+  };
+
+  // Function to trigger file input click
+  const handleClick = () => {
+    document.getElementById("imageUpload").click();
+  };
+
   return (
     <div className="px-[40px] md:px-[100px]">
-      <Flex padding={{base:2, md:10}}>
+      <Flex padding={{ base: 2, md: 10 }}>
         <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6 md:h-[52px]">
           <img src="/images/callIcon.svg" alt="Phone icon" />
-          <Divider orientation="vertical" color="#CCCDD3" display={{base:"hidden", md:"block"}} />
+          <Divider
+            orientation="vertical"
+            color="#CCCDD3"
+            display={{ base: "hidden", md: "block" }}
+          />
           <div className="font-semibold">
             <p className="text-[#00715D]">Phone</p>
             <p>+ 012 345 678</p>
@@ -42,7 +62,11 @@ export default function ContactDetails() {
 
         <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6 md:h-[52px]">
           <img src="/images/messageIcon.svg" alt="message icon" />
-          <Divider orientation="vertical" color="#CCCDD3" display={{base:"hidden", md:"block"}} />
+          <Divider
+            orientation="vertical"
+            color="#CCCDD3"
+            display={{ base: "hidden", md: "block" }}
+          />
           <div className="font-semibold">
             <p className="text-[#00715D]">Email</p>
             <p>Helpfull@gmail.com</p>
@@ -52,7 +76,11 @@ export default function ContactDetails() {
 
         <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6 md:h-[52px]">
           <img src="/images/locationIcon.svg" alt="Location icon" />
-          <Divider orientation="vertical" color="#CCCDD3" display={{base:"hidden", md:"block"}} />
+          <Divider
+            orientation="vertical"
+            color="#CCCDD3"
+            display={{ base: "hidden", md: "block" }}
+          />
           <div className="font-semibold">
             <p className="text-[#00715D]">Location</p>
             <p>View on Google Map</p>
@@ -61,7 +89,10 @@ export default function ContactDetails() {
       </Flex>
 
       <Flex mb="20">
-        <form onSubmit={formik.handleSubmit} className="flex flex-col gap-6 w-[100%] md:w-[45%] p-4 shadow-lg">
+        <form
+          onSubmit={formik.handleSubmit}
+          className="flex flex-col gap-6 w-[100%] md:w-[45%] p-4 shadow-lg"
+        >
           <div className="flex flex-col">
             <label htmlFor="fullName">Full Name</label>
             <input
@@ -108,7 +139,7 @@ export default function ContactDetails() {
             <label htmlFor="message">Message</label>
             <textarea
               className="bg-[#F8F8F8] border-2 rounded border-[#CCCDD3] w-[100%] h-[180px] my-2 p-2"
-              id="message"           
+              id="message"
               {...formik.getFieldProps("message")}
             />
             {formik.touched.message && formik.errors.message ? (
@@ -124,10 +155,35 @@ export default function ContactDetails() {
           </button>
         </form>
 
-        <Spacer/>
+        <Spacer />
 
         <div className="hidden md:block">
-          <img src="/images/Iframe.svg" alt="Iframe" height="200px"/>
+          {/* <img src="/images/Iframe.svg" alt="Iframe" height="200px" /> */}
+
+          <div
+            onClick={handleClick}
+            style={{
+              cursor: "pointer",
+              width: "700px",
+              height: "700px",
+              border: "2px dashed #ccc",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              background: selectedImage
+                ? `url(${selectedImage}) center/cover`
+                : "#f0f0f0",
+            }}
+          >
+            {!selectedImage && <p>Click to upload</p>}
+          </div>
+          <input
+            type="file"
+            id="imageUpload"
+            accept="image/*"
+            style={{ display: "none" }}
+            onChange={handleImageChange}
+          />
         </div>
       </Flex>
     </div>

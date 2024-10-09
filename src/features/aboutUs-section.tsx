@@ -38,7 +38,7 @@ export default function AboutUs() {
           </div>
         </div>
 
-        <Button w="25%" color="white" bgColor="#00715D">Read More</Button>
+        <Button w="25%" color="white" bgColor="#00715D" _hover={{bgColor: 'white', color: '#00715D', border: '1px #00715D solid'}}>Read More</Button>
       </section>
 
       <section className="hidden md:block">

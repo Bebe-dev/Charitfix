@@ -1,6 +1,6 @@
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import SearchIcon from "../assets/icons/SearchIcon";
-import { Button, useDisclosure } from "@chakra-ui/react";
+import { Button, Input, useDisclosure } from "@chakra-ui/react";
 import {
   Menu,
   MenuButton,
@@ -15,11 +15,15 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { Menu2 } from "tabler-icons-react";
-
+import { useState } from "react";
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [ isInputVisible, setIsInputVisible ] = useState<boolean>(false);
 
+  const handleIconClick = () => {
+    setIsInputVisible(true);
+  };
 
   const links = [
     { id: 1, name: "Home", route: "/", type: "", drops: "" },
@@ -62,12 +66,12 @@ export default function Navbar() {
                       <Link to={link.route}>{link.name}</Link>
                     </MenuButton>
                     <MenuList>
-                      {/* {links.drops.map((drop) => (
-                      <Link to: {drop.route}>{drop.name}</Link>
-                    ))} */}
-                      <MenuItem><Link to="/eventDetails">Event Details</Link></MenuItem>
-                      <MenuItem><Link to="/donationShop">Donation Shop</Link></MenuItem>
-                     
+                      <MenuItem>
+                        <Link to="/eventDetails">Event Details</Link>
+                      </MenuItem>
+                      <MenuItem>
+                        <Link to="/donationShop">Donation Shop</Link>
+                      </MenuItem>
                     </MenuList>
                   </Menu>
                 </>
@@ -80,12 +84,30 @@ export default function Navbar() {
           ))}
         </div>
         <div className="flex gap-4">
-          <SearchIcon />
+          <div className="hover:cursor-pointer">
+            {isInputVisible ? (
+              <Input
+                type="text"
+                placeholder="Search..."
+                autoFocus
+                onBlur={() => setIsInputVisible(false)}
+              />
+            ) : (
+              <div onClick={handleIconClick}>
+                <SearchIcon />
+              </div>
+            )}
+          </div>
           <Button
             color="#ffffff"
             backgroundColor="#00715D"
             borderRadius="30px"
             paddingInline="24px"
+            _hover={{
+              bgColor: "white",
+              color: "#00715D",
+              border: "1px #00715D solid",
+            }}
           >
             <Link to="/login">Log in</Link>
           </Button>
@@ -95,7 +117,10 @@ export default function Navbar() {
       {/* MOBILE NAVBAR */}
 
       <div className="md:hidden">
-        <div onClick={onOpen} className="absolute right-2 top-4 bg-white cursor-pointer">
+        <div
+          onClick={onOpen}
+          className="absolute right-2 top-4 bg-white cursor-pointer"
+        >
           <Menu2 />
         </div>
         <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
@@ -128,7 +153,9 @@ export default function Navbar() {
                             {/* {links.drops.map((drop) => (
                       <Link to: {drop.route}>{drop.name}</Link>
                     ))} */}
-                            <MenuItem><Link to="/eventDetails">Event Details</Link></MenuItem>
+                            <MenuItem>
+                              <Link to="/eventDetails">Event Details</Link>
+                            </MenuItem>
                             <MenuItem>Donation Shop</MenuItem>
                             <MenuItem>Mark as Draft</MenuItem>
                             <MenuItem>Delete</MenuItem>
@@ -145,7 +172,6 @@ export default function Navbar() {
                 ))}
               </div>
             </DrawerBody>
-
           </DrawerContent>
         </Drawer>
       </div>

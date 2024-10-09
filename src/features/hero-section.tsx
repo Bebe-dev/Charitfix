@@ -27,6 +27,7 @@ export default function HeroSection() {
               color="white"
               backgroundColor="#00715D"
               width={{md:"25%"}}
+              _hover={{bgColor: 'white', color: '#00715D', border: '1px #00715D solid'}}
             >
               Donate now
             </Button>
@@ -36,6 +37,7 @@ export default function HeroSection() {
               color="white"
               backgroundColor="#000000"
               width={{md:"25%"}}
+              _hover={{bgColor: 'white', color: '#00715D', border: '1px #00715D solid'}}
             >
               Join volunteers
             </Button>
