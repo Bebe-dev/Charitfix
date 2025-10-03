@@ -28,10 +28,10 @@ export default function ContactDetails() {
     },
   });
 
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   // Function to handle file selection
-  const handleImageChange = (e:any) => {
+  const handleImageChange = (e: any) => {
     const file = e.target.files[0];
     if (file) {
       setSelectedImage(URL.createObjectURL(file));
@@ -40,7 +40,10 @@ export default function ContactDetails() {
 
   // Function to trigger file input click
   const handleClick = () => {
-    document.getElementById("imageUpload").click();
+    const input = document.getElementById(
+      "imageUpload"
+    ) as HTMLInputElement | null;
+    input?.click();
   };
 
   return (
