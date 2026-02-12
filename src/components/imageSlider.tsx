@@ -44,11 +44,11 @@ export default function Imageslider({ imageUrls }: ImageSliderProps) {
       </div>
 
       <div className="absolute bottom-0 pb-10 pl-10 text-[#ffffff]">
-        <div className="flex gap-8">
+        <div className="flex gap-8 hidden md:block">
           <p className="text-[#FFD502]">Education</p>
           <p>Africa</p>
         </div>
-        <h2 className="font-semibold text-3xl w-3/4 py-4">
+        <h2 className="font-semibold text-3xl hidden md:block w-3/4 py-4">
           Help differently abled children to feel confident
         </h2>
 
