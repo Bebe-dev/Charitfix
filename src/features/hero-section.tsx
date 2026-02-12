@@ -69,7 +69,7 @@ export default function HeroSection() {
       </section>
 
       <section >
-        <Stack direction={{sm:"column", md:"row"}} marginTop="60px" gap="6">
+        <Stack direction={{base: "column", sm:"column", md:"row"}} marginTop="60px" gap="6">
           <Card w="350px" boxShadow='2xl'>
             <CardBody>
               <SupportIcon />
