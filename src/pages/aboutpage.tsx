@@ -9,7 +9,7 @@ export default function Aboutpage () {
     return(
         <div>
             <Navbar />
-            <Header />
+            <Header name="ABOUT US" />
             <ServiceSection />
             <AboutUs />
             <SponsorSection />

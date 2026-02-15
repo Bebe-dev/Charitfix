@@ -55,6 +55,7 @@ export default function Navbar() {
                     <MenuButton
                       _hover={{
                         bgColor: "white",
+                        textDecoration: "underline"
                       }}
                       p={1}
                       border="none"
@@ -76,7 +77,7 @@ export default function Navbar() {
                   </Menu>
                 </>
               ) : (
-                <Link to={link.route} className="mt-[8px] cursor-pointer">
+                <Link to={link.route} className="mt-[8px] cursor-pointer no-underline hover:underline">
                   {link.name}
                 </Link>
               )}

@@ -7,14 +7,14 @@ import {
 
 export default function QuestionSection() {
   return (
-    <div className="flex items-center gap-10 px-[40px] md:px-[100px]">
+    <div className="flex items-center md:gap-10 px-[30px] md:px-[100px]">
       <div>
         <h2 className="font-semibold text-2xl">Any Question</h2>
         <p>
           When deciding which charity to donate to, it's important to do your
           search and find one that aligns with your values and interests.
         </p>
-        <Accordion allowToggle w="75%">
+        <Accordion allowToggle w={{base:"100%", md: "75%"}}>
           <AccordionItem p="2">
             <AccordionButton>
               Have you weighed the potential risks and benefits?

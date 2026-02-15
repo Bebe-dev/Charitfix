@@ -7,7 +7,7 @@ export default function Blogpage () {
     return(
         <div>
             <Navbar />
-            <Header />
+            <Header name="BLOG" />
             <BlogGrid />
             <Footer />
             

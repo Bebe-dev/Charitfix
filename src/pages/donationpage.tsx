@@ -7,7 +7,7 @@ export default function Donationpage () {
     return(
         <div>
             <Navbar />
-            <Header />
+            <Header name="DONATION" />
             <DonateGrid/>
             <Footer />
             

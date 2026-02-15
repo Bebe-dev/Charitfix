@@ -70,7 +70,7 @@ export default function HeroSection() {
 
       <section >
         <Stack direction={{base: "column", sm:"column", md:"row"}} marginTop="60px" gap="6">
-          <Card w="350px" boxShadow='2xl'>
+          <Card margin="auto" w={{base: "310px", md:"350px"}}  boxShadow='2xl'>
             <CardBody>
               <SupportIcon />
               <h2 className="font-bold">Support</h2>
@@ -81,7 +81,7 @@ export default function HeroSection() {
             </CardBody>
           </Card>
 
-          <Card w="350px" boxShadow='2xl'>
+          <Card w={{base: "310px", md:"350px"}} boxShadow='2xl'>
             <CardBody>
               <EducationIcon />
               <h2 className="font-bold">Education</h2>
@@ -92,7 +92,7 @@ export default function HeroSection() {
             </CardBody>
           </Card>
 
-          <Card w="350px" boxShadow='2xl'>
+          <Card w={{base: "310px", md:"350px"}} boxShadow='2xl'>
             <CardBody>
               <VolunteerIcon />
               <h2 className="font-bold">Volunteers</h2>
@@ -103,7 +103,7 @@ export default function HeroSection() {
             </CardBody>
           </Card>
 
-          <Card w="350px" boxShadow='2xl'>
+          <Card w={{base: "310px", md:"350px"}} boxShadow='2xl'>
             <CardBody>
               <DonationIcon />
               <h2 className="font-bold">Donations</h2>

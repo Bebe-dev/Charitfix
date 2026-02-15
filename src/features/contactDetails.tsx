@@ -47,14 +47,14 @@ export default function ContactDetails() {
   };
 
   return (
-    <div className="px-[40px] md:px-[100px]">
-      <Flex padding={{ base: 2, md: 10 }}>
+    <div className="px-[30px] md:px-[100px]">
+      <Flex padding={{ base: 2, md: 10 }} gap={{base:2}}>
         <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6 md:h-[52px]">
           <img src="/images/callIcon.svg" alt="Phone icon" />
           <Divider
             orientation="vertical"
             color="#CCCDD3"
-            display={{ base: "hidden", md: "block" }}
+            display={{ base: "none", md: "block" }}
           />
           <div className="font-semibold">
             <p className="text-[#00715D]">Phone</p>
@@ -68,11 +68,11 @@ export default function ContactDetails() {
           <Divider
             orientation="vertical"
             color="#CCCDD3"
-            display={{ base: "hidden", md: "block" }}
+            display={{ base: "none", md: "block" }}
           />
-          <div className="font-semibold">
+          <div className="font-semibold text-center md:text-left">
             <p className="text-[#00715D]">Email</p>
-            <p>Helpfull@gmail.com</p>
+            <p>Helpful@gmail.com</p>
           </div>
         </div>
         <Spacer />
@@ -82,7 +82,7 @@ export default function ContactDetails() {
           <Divider
             orientation="vertical"
             color="#CCCDD3"
-            display={{ base: "hidden", md: "block" }}
+            display={{ base: "none", md: "block" }}
           />
           <div className="font-semibold">
             <p className="text-[#00715D]">Location</p>
@@ -151,7 +151,7 @@ export default function ContactDetails() {
           </div>
 
           <button
-            className="bg-[#00715D] text-[#FFFFFF] w-[30%] py-2 px-4 rounded"
+            className="bg-[#00715D] text-[#FFFFFF] md:w-[30%] py-2 px-4 rounded"
             type="submit"
           >
             Send Message

@@ -16,7 +16,7 @@ export default function AboutUs() {
           search and find one that aligns with your values and interests. Look
           for charities that are transparent preventable diseases,
         </p>
-        <div className="flex items-center">
+        <div className="flex gap-2 items-center">
           <img src="/images/like-icon.svg" alt="like-icon" />
           <div>
             <p className="font-bold text-black">Donation</p>
@@ -27,7 +27,7 @@ export default function AboutUs() {
           </div>
         </div>
 
-        <div className="flex items-center">
+        <div className="flex gap-2 items-center">
           <img src="/images/profile-icon.svg" alt="like-icon" />
           <div>
             <p className="font-bold text-black">Volunteer</p>
@@ -38,7 +38,7 @@ export default function AboutUs() {
           </div>
         </div>
 
-        <Button w="25%" color="white" bgColor="#00715D" _hover={{bgColor: 'white', color: '#00715D', border: '1px #00715D solid'}}>Read More</Button>
+        <Button w={{md: "25%"}} p={6} color="white" bgColor="#00715D" _hover={{bgColor: 'white', color: '#00715D', border: '1px #00715D solid'}}>Read More</Button>
       </section>
 
       <section className="hidden md:block">

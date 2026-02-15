@@ -55,7 +55,7 @@ export default function DonationCard({
             bgColor="#FFD502"
             fontSize="xl"
             p="2"
-            position="absolute"
+            position={{md:"absolute"}}
             right="7%"
             bottom="55%"
           >
