@@ -79,7 +79,7 @@ export default function DonationCard({
           We understand that there are many people in need of support.
         </Text>
 
-        <Progress colorScheme="teal" size="sm" value={progress} mt="4" />
+        <Progress borderRadius="8px" colorScheme="teal" size="sm" value={progress} mt="4" />
 
         <Box mt="4">
           <Flex display="flex" alignItems="center">
