@@ -45,7 +45,7 @@ export default function Footer() {
           <img src="/images/dark-logo.svg" alt="dark-logo" />
           <div className="md:flex gap-8 align-center text-white hidden">
             {links.map((link) => (
-              <div>
+              <div key={link.id}>
                 <Link to={link.route} className="hover:text-[#00715D]">
                   {link.name}
                 </Link>
@@ -104,7 +104,7 @@ export default function Footer() {
                 <ListItem className="text-[#949B95] pb-1">
                   Success Stories
                 </ListItem>
-                <ListItem className="text-[#949B95] pb-1">COntact</ListItem>
+                <ListItem className="text-[#949B95] pb-1">Contact</ListItem>
               </UnorderedList>
             </List>
           </div>

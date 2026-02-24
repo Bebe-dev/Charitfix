@@ -9,6 +9,9 @@ import Contactpage from "./pages/contactpage";
 import Login from "./pages/loginpage";
 import EventDetails from "./pages/eventpage";
 import DonateShop from "./pages/donationShop";
+import AboutDetails from "./pages/aboutDetails";
+import BlogDetails from "./pages/blogDetails";
+
 
 function App() {
   return (
@@ -17,8 +20,10 @@ function App() {
         {/* <Route path="/" element={<Homepage />}> */}
         <Route index element={<Homepage />} />
         <Route path="/about" element={<Aboutpage />} />
+        <Route path="/about/:id" element={<AboutDetails />} />
         <Route path="/donation" element={<Donationpage />} />
         <Route path="/blog" element={<Blogpage />} />
+        <Route path="/blog/:id" element={<BlogDetails />} />
         <Route path="/pages" element={<Pagespage />} />
         <Route path="/contact" element={<Contactpage />} />
         <Route path="/login" element={<Login />} />

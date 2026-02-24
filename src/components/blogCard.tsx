@@ -1,7 +1,9 @@
 import { Box, Button, HStack, Image, Text } from "@chakra-ui/react";
 import { BlogCardProps } from "../utils/types/blogCardProps";
+import { useNavigate } from "react-router-dom";
 
 export default function BlogCard({
+  id,
   date,
   imageSrc,
   title,
@@ -9,10 +11,11 @@ export default function BlogCard({
   category,
   text,
 }: BlogCardProps) {
+  const navigate = useNavigate();
   return (
     <Box
       borderRadius="lg"
-      padding="1"
+      padding="3"
       position="relative"
       className="hover:shadow-2xl transition-shadow duration-300 ease-in-out"
       zIndex={0}
@@ -51,6 +54,7 @@ export default function BlogCard({
           border="1px solid #E5E5E5"
           borderRadius="20px"
           px="6"
+          onClick={() => navigate(`/blog/${id}`)}
         >
           Read More
         </Button>

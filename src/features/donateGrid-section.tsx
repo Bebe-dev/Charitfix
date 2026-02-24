@@ -1,6 +1,9 @@
 import { useState } from "react";
 import DonationCard from "../components/donationCard";
 import { Box, SimpleGrid, HStack, Button } from "@chakra-ui/react";
+import { DonationCardProps } from "../utils/types/donationCardProps";
+import Share from "../components/shareModal";
+import DonateForm from "../components/donationForm";
 
 const donations = [
   {
@@ -10,6 +13,7 @@ const donations = [
     goal: "$15,000",
     raised: "$15,000",
     progress: 55,
+    url: "https://charitfix.netlify.app/donation",
   },
   {
     category: "Education",
@@ -18,6 +22,7 @@ const donations = [
     goal: "$15,000",
     raised: "$15,000",
     progress: 70,
+    url: "https://charitfix.netlify.app/donation",
   },
   {
     category: "Medical",
@@ -26,6 +31,7 @@ const donations = [
     goal: "$15,000",
     raised: "$15,000",
     progress: 20,
+    url: "https://charitfix.netlify.app/donation",
   },
   {
     category: "Food",
@@ -34,6 +40,7 @@ const donations = [
     goal: "$15,000",
     raised: "$15,000",
     progress: 40,
+    url: "https://charitfix.netlify.app/donation",
   },
   {
     category: "Education",
@@ -42,6 +49,7 @@ const donations = [
     goal: "$15,000",
     raised: "$15,000",
     progress: 80,
+    url: "https://charitfix.netlify.app/donation",
   },
   {
     category: "Medical",
@@ -50,16 +58,20 @@ const donations = [
     goal: "$15,000",
     raised: "$15,000",
     progress: 50,
+    url: "https://charitfix.netlify.app/donation",
   },
-  // Add more donation items
 ];
 
 export default function DonateGrid() {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 4;
+  const [selectedDonation, setSelectedDonation] =
+    useState<DonationCardProps | null>(null);
+  const [selectedDonateCard, setSelectedDonateCard] =
+    useState<DonationCardProps | null>(null);
 
   return (
-    <Box p={8} px={{base:10, md:100}}>
+    <Box p={8} px={{ base: 10, lg: 100 }}>
       {/* Donation Cards Grid */}
       <SimpleGrid columns={[1, null, 3]} spacing="20px">
         {donations.map((donation, index) => (
@@ -71,10 +83,12 @@ export default function DonateGrid() {
             goal={donation.goal}
             raised={donation.raised}
             progress={donation.progress}
+            url={donation.url}
+            onShare={() => setSelectedDonation(donation)}
+            onDonate={() => setSelectedDonateCard(donation)}
           />
         ))}
       </SimpleGrid>
-
 
       <HStack spacing={4} justifyContent="center" mt={10}>
         <Button
@@ -104,6 +118,18 @@ export default function DonateGrid() {
           &rarr;
         </Button>
       </HStack>
+
+      <Share
+        isOpen={selectedDonation !== null}
+        onClose={() => setSelectedDonation(null)}
+        donation={selectedDonation}
+      />
+
+      <DonateForm
+        isOpen={selectedDonateCard !== null}
+        onClose={() => setSelectedDonateCard(null)}
+        donation={selectedDonateCard}
+      />
     </Box>
   );
 }

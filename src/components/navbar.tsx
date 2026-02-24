@@ -13,7 +13,7 @@ import {
   DrawerContent,
   DrawerCloseButton,
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Menu2 } from "tabler-icons-react";
 import { useState } from "react";
 
@@ -30,25 +30,25 @@ export default function Navbar() {
     { id: 2, name: "About", route: "/about", type: "", drops: "" },
     { id: 3, name: "Donation", route: "/donation", type: "", drops: "" },
     { id: 4, name: "Blog", route: "/blog", type: "", drops: "" },
-    {
-      id: 5,
-      name: "Pages",
-      route: "/pages",
-      type: "dropdown",
-      drops: [
-        { name: "Event Details", route: "/eventDetails" },
-        { name: "Donation Shop", route: "/donationShop" },
-      ],
-    },
+    // {
+    //   id: 5,
+    //   name: "Pages",
+    //   route: "/pages",
+    //   type: "dropdown",
+    //   drops: [
+    //     { name: "Event Details", route: "/eventDetails" },
+    //     { name: "Donation Shop", route: "/donationShop" },
+    //   ],
+    // },
     { id: 6, name: "Contact", route: "/contact", type: "", drops: "" },
   ];
   return (
     <div>
-      <div className="flex justify-between align-center font-semibold px-[40px] md:px-[100px] pt-6 sticky top-0 bg-[#FFFFFF] hidden md:flex">
+      <div className="flex justify-between align-center font-semibold px-[40px] md:px-[100px] pt-6 sticky top-0 bg-[#FFFFFF] hidden lg:flex">
         <img src="/images/logo.svg" alt="logo" />
         <div className="flex gap-8">
           {links.map((link) => (
-            <div>
+            <div key={link.id}>
               {link.type === "dropdown" ? (
                 <>
                   <Menu>
@@ -77,9 +77,9 @@ export default function Navbar() {
                   </Menu>
                 </>
               ) : (
-                <Link to={link.route} className="mt-[8px] cursor-pointer no-underline hover:underline">
-                  {link.name}
-                </Link>
+                <NavLink to={link.route} className={({isActive}) => isActive ? `mt-[8px] cursor-pointer bg-white text-[#00715D] border border-[#00715D] rounded-xl p-2` : `mt-[8px] cursor-pointer no-undeline hover:underline`} >
+                        {link.name}
+                      </NavLink>
               )}
             </div>
           ))}
@@ -117,7 +117,7 @@ export default function Navbar() {
 
       {/* MOBILE NAVBAR */}
 
-      <div className="md:hidden">
+      <div className="lg:hidden">
         <div
           onClick={onOpen}
           className="absolute right-2 top-4 bg-white cursor-pointer"
@@ -133,7 +133,7 @@ export default function Navbar() {
             <DrawerBody>
               <div className="flex flex-col gap-4">
                 {links.map((link) => (
-                  <div>
+                  <div key={link.id}>
                     {link.type === "dropdown" ? (
                       <>
                         <Menu>
@@ -165,9 +165,9 @@ export default function Navbar() {
                         </Menu>
                       </>
                     ) : (
-                      <Link to={link.route} className="mt-[8px] cursor-pointer">
+                      <NavLink to={link.route} className={({isActive}) => isActive ? `mt-[8px] cursor-pointer bg-white text-[#00715D] border border-[#00715D]` : `mt-[8px] cursor-pointer`} >
                         {link.name}
-                      </Link>
+                      </NavLink>
                     )}
                   </div>
                 ))}

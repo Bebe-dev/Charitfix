@@ -3,8 +3,13 @@ import SupportIcon from "../assets/icons/SupportIcon";
 import EducationIcon from "../assets/icons/EducationIcon";
 import VolunteerIcon from "../assets/icons/VolunteerIcon";
 import DonationIcon from "../assets/icons/DonationIcon";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import VolunteerForm from "../components/volunteerForm";
 
 export default function HeroSection() {
+  const navigate = useNavigate();
+  const [showVolunteer, setShowVolunteer] = useState(false);
   return (
     <div className="py-[70px] px-[40px] md:px-[100px]">
       <section className="md:flex md:pr-[200px]">
@@ -26,8 +31,13 @@ export default function HeroSection() {
               borderRadius="30px"
               color="white"
               backgroundColor="#00715D"
-              width={{md:"25%"}}
-              _hover={{bgColor: 'white', color: '#00715D', border: '1px #00715D solid'}}
+              width={{ md: "25%" }}
+              onClick={() => navigate("/donation")}
+              _hover={{
+                bgColor: "white",
+                color: "#00715D",
+                border: "1px #00715D solid",
+              }}
             >
               Donate now
             </Button>
@@ -36,11 +46,20 @@ export default function HeroSection() {
               borderRadius="30px"
               color="white"
               backgroundColor="#000000"
-              width={{md:"25%"}}
-              _hover={{bgColor: 'white', color: '#00715D', border: '1px #00715D solid'}}
+              width={{ md: "25%" }}
+              onClick={() => setShowVolunteer(true)}
+              _hover={{
+                bgColor: "white",
+                color: "#00715D",
+                border: "1px #00715D solid",
+              }}
             >
               Join volunteers
             </Button>
+            <VolunteerForm
+              isOpen={showVolunteer}
+              onClose={() => setShowVolunteer(false)}
+            />
           </Stack>
         </div>
 
@@ -68,9 +87,17 @@ export default function HeroSection() {
         </div>
       </section>
 
-      <section >
-        <Stack direction={{base: "column", sm:"column", md:"row"}} marginTop="60px" gap="6">
-          <Card margin="auto" w={{base: "310px", md:"350px"}}  boxShadow='2xl'>
+      <section>
+        <Stack
+          direction={{ base: "column", sm: "column", md: "row" }}
+          marginTop="60px"
+          gap="6"
+        >
+          <Card
+            
+            w={{ base: "310px", sm: "440px", md: "350px" }}
+            boxShadow="2xl"
+          >
             <CardBody>
               <SupportIcon />
               <h2 className="font-bold">Support</h2>
@@ -81,7 +108,7 @@ export default function HeroSection() {
             </CardBody>
           </Card>
 
-          <Card w={{base: "310px", md:"350px"}} boxShadow='2xl'>
+          <Card w={{ base: "310px", sm: "440px", md: "350px" }} boxShadow="2xl">
             <CardBody>
               <EducationIcon />
               <h2 className="font-bold">Education</h2>
@@ -92,7 +119,7 @@ export default function HeroSection() {
             </CardBody>
           </Card>
 
-          <Card w={{base: "310px", md:"350px"}} boxShadow='2xl'>
+          <Card w={{ base: "310px", sm: "440px", md: "350px" }} boxShadow="2xl">
             <CardBody>
               <VolunteerIcon />
               <h2 className="font-bold">Volunteers</h2>
@@ -103,7 +130,7 @@ export default function HeroSection() {
             </CardBody>
           </Card>
 
-          <Card w={{base: "310px", md:"350px"}} boxShadow='2xl'>
+          <Card w={{ base: "310px", sm: "440px", md: "350px" }} boxShadow="2xl">
             <CardBody>
               <DonationIcon />
               <h2 className="font-bold">Donations</h2>

@@ -1,81 +1,7 @@
 import { Box, Button, HStack, SimpleGrid } from "@chakra-ui/react";
 import BlogCard from "../components/blogCard";
 import { useState } from "react";
-
-const blogs = [
-  {
-    date: "23 June 2023",
-    imageSrc: "/images/blog-1.svg",
-    title: "We assure you that your donation will be used wisely.",
-    writer: "admin",
-    category: "donation",
-    text: "We understand that there are many people organization The seeking support,",
-  },
-  {
-    date: "30 June 2023",
-    imageSrc: "/images/blog-2.svg",
-    title: "We assure you that your donation will be used wisely.",
-    writer: "admin",
-    category: "donation",
-    text: "We understand that there are many people organization The seeking support,",
-  },
-  {
-    date: "07 July 2023",
-    imageSrc: "/images/blog-3.svg",
-    title: "We assure you that your donation will be used wisely.",
-    writer: "admin",
-    category: "donation",
-    text: "We understand that there are many people organization The seeking support,",
-  },
-  {
-    date: "14 July 2023",
-    imageSrc: "/images/blog-4.svg",
-    title: "We assure you that your donation will be used wisely.",
-    writer: "admin",
-    category: "donation",
-    text: "We understand that there are many people organization The seeking support,",
-  },
-  {
-    date: "21 July 2023",
-    imageSrc: "/images/blog-5.svg",
-    title: "We assure you that your donation will be used wisely.",
-    writer: "admin",
-    category: "donation",
-    text: "We understand that there are many people organization The seeking support,",
-  },
-  {
-    date: "28 July 2023",
-    imageSrc: "/images/blog-6.svg",
-    title: "We assure you that your donation will be used wisely.",
-    writer: "admin",
-    category: "donation",
-    text: "We understand that there are many people organization The seeking support,",
-  },
-  {
-    date: "05 August 2023",
-    imageSrc: "/images/blog-7.svg",
-    title: "We assure you that your donation will be used wisely.",
-    writer: "admin",
-    category: "donation",
-    text: "We understand that there are many people organization The seeking support,",
-  },
-  {
-    date: "12 August 2023",
-    imageSrc: "/images/blog-8.svg",
-    title: "We assure you that your donation will be used wisely.",
-    writer: "admin",
-    category: "donation",
-    text: "We understand that there are many people organization The seeking support,",
-  },
-  {
-    date: "19 August 2023",
-    imageSrc: "/images/blog-9.svg",
-    title: "We assure you that your donation will be used wisely.",
-    writer: "admin",
-    category: "donation",
-    text: "We understand that there are many people organization The seeking support,",
-  },
-];
+import { Blogs } from "../utils/data/blogs";
 
 export default function BlogGrid() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -84,9 +10,10 @@ export default function BlogGrid() {
   return (
     <Box py={20} px={{base:10, md:100}}>
       <SimpleGrid columns={[1, null, 3]} spacing="20px">
-        {blogs.map((blog, index) => (
+        {Blogs.map((blog, index) => (
           <BlogCard
             key={index}
+            id={blog.id}
             date={blog.date}
             imageSrc={blog.imageSrc}
             title={blog.title}

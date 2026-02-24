@@ -38,7 +38,7 @@ export default function AboutUs() {
           </div>
         </div>
 
-        <Button w={{md: "25%"}} p={6} color="white" bgColor="#00715D" _hover={{bgColor: 'white', color: '#00715D', border: '1px #00715D solid'}}>Read More</Button>
+        <Button w={{lg: "28%"}} p={6} color="white" bgColor="#00715D" _hover={{bgColor: 'white', color: '#00715D', border: '1px #00715D solid'}}>Read More</Button>
       </section>
 
       <section className="hidden md:block">

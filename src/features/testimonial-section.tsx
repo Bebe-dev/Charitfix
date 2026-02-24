@@ -1,6 +1,6 @@
 export default function TestimonialSection() {
   return (
-    <div className="text-center py-8 px-[40px] md:px-[100px]">
+    <div className="text-center py-16 space-y-4 px-[40px] md:px-[100px]">
       <p className="text-[#00715D]">Testimonials</p>
       <p className="font-bold text-xl">What People Say</p>
       <div className="flex gap-2 justify-center">

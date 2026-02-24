@@ -30,7 +30,7 @@ export default function ContactDetails() {
 
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  // Function to handle file selection
+
   const handleImageChange = (e: any) => {
     const file = e.target.files[0];
     if (file) {
@@ -38,7 +38,6 @@ export default function ContactDetails() {
     }
   };
 
-  // Function to trigger file input click
   const handleClick = () => {
     const input = document.getElementById(
       "imageUpload"
@@ -86,7 +85,7 @@ export default function ContactDetails() {
           />
           <div className="font-semibold">
             <p className="text-[#00715D]">Location</p>
-            <p>View on Google Map</p>
+            <p>Lagos, Nigeria</p>
           </div>
         </div>
       </Flex>
@@ -94,7 +93,7 @@ export default function ContactDetails() {
       <Flex mb="20">
         <form
           onSubmit={formik.handleSubmit}
-          className="flex flex-col gap-6 w-[100%] md:w-[45%] p-4 shadow-lg"
+          className="flex flex-col gap-6 w-[100%] lg:w-[45%] p-4 shadow-lg"
         >
           <div className="flex flex-col">
             <label htmlFor="fullName">Full Name</label>
@@ -106,7 +105,7 @@ export default function ContactDetails() {
               {...formik.getFieldProps("fullName")}
             />
             {formik.touched.fullName && formik.errors.fullName ? (
-              <div>{formik.errors.fullName}</div>
+              <div className="text-red-400 text-sm">{formik.errors.fullName}</div>
             ) : null}
           </div>
 
@@ -120,7 +119,7 @@ export default function ContactDetails() {
               {...formik.getFieldProps("phoneNumber")}
             />
             {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
-              <div>{formik.errors.phoneNumber}</div>
+              <div className="text-red-400 text-sm">{formik.errors.phoneNumber}</div>
             ) : null}
           </div>
 
@@ -134,7 +133,7 @@ export default function ContactDetails() {
               {...formik.getFieldProps("email")}
             />
             {formik.touched.email && formik.errors.email ? (
-              <div>{formik.errors.email}</div>
+              <div className="text-red-400 text-sm">{formik.errors.email}</div>
             ) : null}
           </div>
 
@@ -146,12 +145,12 @@ export default function ContactDetails() {
               {...formik.getFieldProps("message")}
             />
             {formik.touched.message && formik.errors.message ? (
-              <div>{formik.errors.message}</div>
+              <div className="text-red-400 text-sm">{formik.errors.message}</div>
             ) : null}
           </div>
 
           <button
-            className="bg-[#00715D] text-[#FFFFFF] md:w-[30%] py-2 px-4 rounded"
+            className="bg-[#00715D] text-[#FFFFFF] lg:w-[30%] py-2 px-4 rounded"
             type="submit"
           >
             Send Message
@@ -165,10 +164,8 @@ export default function ContactDetails() {
 
           <div
             onClick={handleClick}
+            className="cursor-pointer w-[300px] lg:w-[700px] h-[300px] lg:h-[700px] "
             style={{
-              cursor: "pointer",
-              width: "700px",
-              height: "700px",
               border: "2px dashed #ccc",
               display: "flex",
               alignItems: "center",

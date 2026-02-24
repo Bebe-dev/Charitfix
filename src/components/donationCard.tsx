@@ -19,6 +19,8 @@ export default function DonationCard({
   goal,
   raised,
   progress,
+  onDonate,
+  onShare
 }: DonationCardProps) {
   return (
     <Box
@@ -55,7 +57,7 @@ export default function DonationCard({
             bgColor="#FFD502"
             fontSize="xl"
             p="2"
-            position={{md:"absolute"}}
+            position={{lg:"absolute"}}
             right="7%"
             bottom="55%"
           >
@@ -94,7 +96,7 @@ export default function DonationCard({
 
             <Spacer/>
 
-            <Box>
+            <Box onClick={onShare}>
               <GreenReturn />
             </Box>
           </Flex>
@@ -108,6 +110,7 @@ export default function DonationCard({
           variant="outline"
           borderRadius="8"
           borderColor="#CCCDD3"
+          onClick={onDonate}
         >
           Donate Now
         </Button>

@@ -1,4 +1,5 @@
 import { Card, CardBody, CardFooter, CardHeader } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import { ArrowUpRight } from "tabler-icons-react";
 
 export default function ServiceSection() {
@@ -21,7 +22,7 @@ export default function ServiceSection() {
           research.
         </CardBody>
         <CardFooter display="flex" justifyContent="center" alignItems="center">
-          <p className="text-[#00715D]">Read More</p>
+          <Link to="/about/medical" className="text-[#00715D] hover:opacity-80">Read More</Link>
           <ArrowUpRight size={18} strokeWidth={2} color={"#00715D"} />
         </CardFooter>
         <div className="text-[#F1F2F3] font-bold text-9xl pb-8 z-0 absolute bottom-0 right-0">
@@ -46,7 +47,7 @@ export default function ServiceSection() {
           research.
         </CardBody>
         <CardFooter display="flex" justifyContent="center" alignItems="center">
-          <p className="text-[#00715D]">Read More</p>
+          <Link to="/about/social" className="text-[#00715D] hover:opacity-80">Read More</Link>
           <ArrowUpRight size={18} strokeWidth={2} color={"#00715D"} />
         </CardFooter>
         <div className="text-[#F1F2F3] font-bold text-9xl pb-8 z-0 absolute bottom-0 right-0">
@@ -71,7 +72,7 @@ export default function ServiceSection() {
           research.
         </CardBody>
         <CardFooter display="flex" justifyContent="center" alignItems="center">
-          <p className="text-[#00715D]">Read More</p>
+          <Link to="/about/charitable" className="text-[#00715D] hover:opacity-80">Read More</Link>
           <ArrowUpRight size={18} strokeWidth={2} color={"#00715D"} />
         </CardFooter>
         <div className="text-[#F1F2F3] font-bold text-9xl pb-8 z-0 absolute bottom-0 right-0">
@@ -96,7 +97,7 @@ export default function ServiceSection() {
           research.
         </CardBody>
         <CardFooter display="flex" justifyContent="center" alignItems="center">
-          <p className="text-[#00715D]">Read More</p>
+          <Link to="/about/education" className="text-[#00715D] hover:opacity-80">Read More</Link>
           <ArrowUpRight size={18} strokeWidth={2} color={"#00715D"} />
         </CardFooter>
         <div className="text-[#F1F2F3] font-bold text-9xl pb-8 z-0 absolute bottom-0 right-0">

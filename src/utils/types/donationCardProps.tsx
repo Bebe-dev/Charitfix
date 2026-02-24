@@ -5,4 +5,8 @@ export type DonationCardProps = {
   goal: string;
   raised: string;
   progress: number;
+  url: string;
+  onDonate?: () => void;
+  onShare?: () => void;
 };
+
