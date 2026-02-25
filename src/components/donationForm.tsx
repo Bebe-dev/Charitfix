@@ -13,6 +13,7 @@ import {
 import { X } from "tabler-icons-react";
 import { DonationCardProps } from "../utils/types/donationCardProps";
 import { payWithPaystack } from "../utils/paystack";
+import { ToastContainer, toast } from "react-toastify";
 
 interface DonateFormProps {
   isOpen: boolean;
@@ -53,8 +54,9 @@ export default function DonateForm({
       amount: finalAmount * 100,
       reference: `donation_${donation?.category}_${Date.now()}`,
       onSuccess: () => {
-        alert("Payment successful!");
-        alert(
+        toast("Payment successful!");
+        //alert("Payment successful!");
+        toast(
           `Thank you ${name}! Your donation of ₦${finalAmount.toLocaleString()} to ${donation?.title} is being processed.`,
         );
       },
@@ -86,7 +88,7 @@ export default function DonateForm({
         className="fixed inset-0 bg-black/40 z-40 backdrop-blur-sm"
         onClick={handleClose}
       />
-
+      <ToastContainer />
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
         <div className="bg-white rounded-3xl shadow-2xl w-full max-w-sm overflow-hidden">
           <div className="bg-[#00715D] px-6 py-5 flex items-center justify-between">
@@ -129,7 +131,6 @@ export default function DonateForm({
           </div>
 
           <div className="px-6 pb-6">
-            
             <div className="bg-gray-50 rounded-2xl p-4 mb-5 border border-gray-100">
               <div className="flex justify-between mb-1">
                 <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
@@ -157,7 +158,6 @@ export default function DonateForm({
               </div>
             </div>
 
-      
             {step === 1 && (
               <VStack spacing={4} align="stretch">
                 <Text fontSize="sm" fontWeight="semibold" color="gray.600">
@@ -293,7 +293,7 @@ export default function DonateForm({
                   }}
                   _disabled={{ opacity: 0.4, cursor: "not-allowed" }}
                 >
-                  Donate ₦{finalAmount?.toLocaleString()} 
+                  Donate ₦{finalAmount?.toLocaleString()}
                 </Button>
 
                 <button
