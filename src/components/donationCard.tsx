@@ -96,7 +96,7 @@ export default function DonationCard({
 
             <Spacer/>
 
-            <Box onClick={onShare}>
+            <Box onClick={onShare} _hover={{cursor: "pointer", scale: "0.5"}}>
               <GreenReturn />
             </Box>
           </Flex>
